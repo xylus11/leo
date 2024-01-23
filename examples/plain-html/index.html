@@ -155,8 +155,10 @@
     const searchInput = document.querySelector('leo-input:has(#searchPicker)')
     const searchDropdown = document.querySelector('#searchPicker')
     searchDropdown.addEventListener('change', e => {
-      const value = document.querySelector('#searchPicker [slot=value]')
-      value.textContent = e.detail.value
+      const valueIcon = searchDropdown.querySelector('[slot=value] leo-icon')
+      const icon = searchDropdown.querySelector(`leo-option[value=${e.detail.value}] leo-icon`)
+
+      valueIcon.name = icon.name
     })
 
     segmentedControl.addEventListener('change', (e) => {
@@ -205,11 +207,11 @@
       <leo-option value="CA">Canada</leo-option>
     </leo-dropdown>
     <leo-input>
-      <div slot="value">
-        <leo-icon></leo-icon>
-      </div>
       <div slot="left-icon">
         <leo-dropdown id="searchPicker">
+          <div slot="value">
+            <leo-icon></leo-icon>
+          </div>
           <leo-option value="Brave">
             <leo-icon name="brave-icon-release-color"></leo-icon>
           </leo-option>

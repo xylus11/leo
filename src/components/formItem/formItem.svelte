@@ -69,14 +69,16 @@
   class:error
   aria-disabled={disabled}
 >
-  <div class="label-row"><slot name="label" />{#if required}<span class="required-indicator">*</span>{/if}</div>
+  <div class="label-row">
+    <slot name="label" />{#if required}<span class="required-indicator">*</span>{/if}
+  </div>
   <div class="control" bind:this={controlElement}>
     <div class="container">
-      <div>
+      <div class="extra-content">
         <slot name="left-icon" />
       </div>
       <slot />
-      <div>
+      <div class="extra-content">
         <slot name="right-icon" />
       </div>
     </div>
@@ -132,10 +134,12 @@
 
       & .container:has(*:focus-visible),
       &.isFocused .container {
-        color: var(--color-focus);
-        background: var(--background-focus);
-        box-shadow: var(--shadow-focus);
-        border-color: var(--border-color-focus);
+        &:not(:has(.extra-content:focus-within)) {
+          color: var(--color-focus);
+          background: var(--background-focus);
+          box-shadow: var(--shadow-focus);
+          border-color: var(--border-color-focus);
+        }
       }
 
       &.error .container:hover:not(:has(*:focus-visible)) {

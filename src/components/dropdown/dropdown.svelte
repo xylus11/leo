@@ -42,7 +42,8 @@
     dispatch('change', e.detail)
   }
 
-  function onClick() {
+  function onClick(e) {
+    e.preventDefault()
     isOpen = !isOpen
   }
 </script>
@@ -89,31 +90,14 @@
     bind:currentValue={value}
     on:select-item={onItemSelect}
     on:close={(e) => {
-      if ('x' in e.detail.originalEvent && 'y' in e.detail.originalEvent) {
-        const bounds = dropdown.getBoundingClientRect()
-        const x = +e.detail.originalEvent.x
-        const y = +e.detail.originalEvent.y
-
-        if (
-          x < bounds.left ||
-          x > bounds.right ||
-          y < bounds.top ||
-          y > bounds.bottom
-        ) {
-          button.focus()
-        } else {
-          e.preventDefault()
-        }
-        return
-      }
       // Note: We cancel the |close| event if it was the dropdown that we
       // clicked on, as that already toggles the dropdown. If we do both, the
       // dropdown will instantly close and reopen.
       if (e.detail.originalEvent.composedPath().includes(dropdown)) {
         e.preventDefault()
-      } else {
-        // Focus the button when closing the dropdown, so keyboard users can
-        // reopen it.
+      } else if ('key' in e) {
+        // Focus the button when closing the dropdown via keyboard, so keyboard
+        // users can reopen it.
         button.focus()
       }
     }}
