@@ -89,6 +89,23 @@
     bind:currentValue={value}
     on:select-item={onItemSelect}
     on:close={(e) => {
+      if ('x' in e.detail.originalEvent && 'y' in e.detail.originalEvent) {
+        const bounds = dropdown.getBoundingClientRect()
+        const x = +e.detail.originalEvent.x
+        const y = +e.detail.originalEvent.y
+
+        if (
+          x < bounds.left ||
+          x > bounds.right ||
+          y < bounds.top ||
+          y > bounds.bottom
+        ) {
+          button.focus()
+        } else {
+          e.preventDefault()
+        }
+        return
+      }
       // Note: We cancel the |close| event if it was the dropdown that we
       // clicked on, as that already toggles the dropdown. If we do both, the
       // dropdown will instantly close and reopen.

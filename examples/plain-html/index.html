@@ -154,12 +154,6 @@
 
     const searchInput = document.querySelector('leo-input:has(#searchPicker)')
     const searchDropdown = document.querySelector('#searchPicker')
-    searchDropdown.addEventListener('click', e => {
-      e.stopPropagation()
-    })
-    searchDropdown.addEventListener('close', e => {
-      e.preventDefault()
-    })
     searchDropdown.addEventListener('change', e => {
       const value = document.querySelector('#searchPicker [slot=value]')
       value.textContent = e.detail.value

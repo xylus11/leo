@@ -56,7 +56,7 @@
   export let showFocusOutline: boolean = false
   export let error = false
 
-  export let controlElement: HTMLDivElement = undefined;
+  export let controlElement: HTMLDivElement = undefined
 </script>
 
 <label
@@ -69,10 +69,7 @@
   class:error
   aria-disabled={disabled}
 >
-  <div class="label-row">
-    <slot name="label" />
-    {#if required}<span class="required-indicator">*</span>{/if}
-  </div>
+  <div class="label-row"><slot name="label" />{#if required}<span class="required-indicator">*</span>{/if}</div>
   <div class="control" bind:this={controlElement}>
     <div class="container">
       <div>
@@ -211,6 +208,10 @@
     display: flex;
     flex-direction: row;
     gap: var(--leo-spacing-s);
+
+    &:empty {
+      display: none;
+    }
   }
 
   .leo-control .required-indicator {
