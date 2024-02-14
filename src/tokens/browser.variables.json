@@ -40,7 +40,7 @@
       "browserbutton": {
         "background-hover": {
           "type": "color",
-          "value": "#ebeef0"
+          "value": "#f3f5f7"
         },
         "background-active-toolbar": {
           "type": "color",
@@ -178,7 +178,7 @@
       "browserbutton": {
         "background-hover": {
           "type": "color",
-          "value": "#0d1214"
+          "value": "#21272a"
         },
         "background-active-toolbar": {
           "type": "color",
@@ -316,7 +316,7 @@
       "browserbutton": {
         "background-hover": {
           "type": "color",
-          "value": "#13052a"
+          "value": "#2a0d58"
         },
         "background-active-toolbar": {
           "type": "color",
@@ -454,7 +454,7 @@
       "browserbutton": {
         "background-hover": {
           "type": "color",
-          "value": "#190423"
+          "value": "#350b49"
         },
         "background-active-toolbar": {
           "type": "color",
