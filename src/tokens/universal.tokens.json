@@ -1478,7 +1478,7 @@
         "value": {
           "shadowType": "dropShadow",
           "radius": 0,
-          "color": "#62757eff",
+          "color": "#7c91ffff",
           "offsetX": 4,
           "offsetY": 4,
           "spread": 0
@@ -1496,7 +1496,7 @@
         "value": {
           "shadowType": "dropShadow",
           "radius": 0,
-          "color": "#62757eff",
+          "color": "#7c91ffff",
           "offsetX": 8,
           "offsetY": 8,
           "spread": 0
